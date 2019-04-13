@@ -1,0 +1,39 @@
+.wrap {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 10rpx;
+  border: 1rpx solid #eee;
+}
+
+.my-custom-style {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.image-size {
+  width: 100rpx;
+  height: 100rpx;
+}
+
+.bg-red {
+  background-color: red;
+}
+
+.bg-000 {
+  background-color: #000;
+}
+
+.bg-eee {
+  background-color: #eee;
+}
+
+.mt40 {
+  margin-top: 40rpx;
+}
+
+.text-fff {
+  color: #fff;
+}

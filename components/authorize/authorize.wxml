@@ -1,0 +1,39 @@
+<block wx:if="{{authorize=='share'}}">
+  <button class='userinfo_btn' open-type="share">
+    <slot></slot>
+  </button>
+</block>
+<block wx:elif="{{authorize=='phoneNumber'}}">
+  <button class='userinfo_btn' open-type="getPhoneNumber" bindgetphonenumber='getPhoneNumber'>
+    <slot></slot>
+  </button>
+</block>
+<block wx:elif="{{authorize=='userInfo'}}">
+  <button class='userinfo_btn' open-type="getUserInfo" bindgetuserinfo="goGetUserInfo">
+    <slot></slot>
+  </button>
+</block>
+<view wx:else catchtap='doOperate' id='{{id}}'>
+  <slot></slot>
+</view>
+
+
+
+<view class="fixed-mask {{isShowAuthorize?'show_mask':'hidden_mask'}}" catchtap="{{isClickMaskClose?'hiddenMask':'onClickMask'}}"></view>
+<view class="content_wrap {{isShowAuthorize?'show_popup ':'hidden_popup'}}">
+  <view class='text-center '>服务授权</view>
+  <view class='image_wrap'>
+    <image class='wechat_image' mode='aspectFill' src='{{logo}}'></image>
+  </view>
+  <view class='desc'>授权后{{title}}将为您提供更优质的服务</view>
+  <view class='mgt40'>
+
+
+
+    <button wx:if="{{isOnShowPopUp&&authorize=='userInfo'}}" class='btn' style='background-color:{{authorizeTextBgColor}}' open-type="getUserInfo" bindgetuserinfo="goGetUserInfo">{{authorizeDesc}}</button>
+
+    <button wx:elif="{{isOnShowPopUp&&authorize=='phoneNumber'}}" class='btn' style='background-color:{{authorizeTextBgColor}}' open-type="getPhoneNumber" bindgetphonenumber='getPhoneNumber'>{{authorizeDesc}}</button>
+
+    <button wx:else class='btn' style='background-color:{{authorizeTextBgColor}}' open-type='openSetting' catchopensetting="openSetting">{{authorizeDesc}}</button>
+  </view>
+</view>

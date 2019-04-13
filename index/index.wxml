@@ -1,0 +1,56 @@
+<view class='wrap'>
+  <view>点那边</view>
+  <authorize authorize="share">
+    <view class='my-custom-style'>
+      <image class='image-size' mode='aspectFill' src='./wechat-logo.png'></image>
+      <text>分享</text>
+    </view>
+  </authorize>
+</view>
+
+<view class='wrap mt40'>
+  <view>点那边</view>
+  <authorize authorize="userInfo" bind:onAuthorize="haveUserAuthorize">
+    <view class='my-custom-style'>
+      <image class='image-size' mode='aspectFill' src='./wechat-logo.png'></image>
+      <text>用户信息</text>
+    </view>
+  </authorize>
+</view>
+<view class='wrap mt40'>
+  <view>点那边</view>
+  <authorize authorize="userLocation" bind:onAuthorize="haveLocationAuthorize">
+    <view class='my-custom-style'>
+      <image class='image-size' mode='aspectFill' src='./wechat-logo.png'></image>
+      <text>地理位置</text>
+    </view>
+  </authorize>
+</view>
+<view class='wrap mt40'>
+  <view>点那边</view>
+  <authorize authorize="phoneNumber" bind:onAuthorize="getPhone">
+    <view class='my-custom-style'>
+      <image class='image-size' mode='aspectFill' src='./wechat-logo.png'></image>
+      <text>手机号码</text>
+    </view>
+  </authorize>
+</view>
+<authorize isOnShowPopUp="{{true}}"  authorize="userLocation" bind:onAuthorize="getOnShowPhone" bind:onDeny="onDeny"></authorize>
+
+<!-- 其他权限自己选择 authorize属性后面只需要赋值scope.后面的文本;
+
+  // 以下是官方的相应权限以及对应的api
+  // scope.userInfo           wx.getUserInfo 用户信息
+  // scope.userLocation       wx.getLocation, wx.chooseLocation 地理位置
+  // scope.address            wx.chooseAddress 通讯地址
+  // scope.invoiceTitle       wx.chooseInvoiceTitle 发票抬头
+  // scope.invoice            wx.chooseInvoice 获取发票
+  // scope.werun              wx.getWeRunData 微信运动步数
+  // scope.record             wx.startRecord 录音功能
+  // scope.writePhotosAlbum   wx.saveImageToPhotosAlbum, wx.saveVideoToPhotosAlbum 保存到相册
+  // scope.camera 	          <camera /> 组件 	摄像头
+
+  //***其他权限*/
+  //  phoneNumber  ----获取手机号
+  //  share  ----分享 
+  -->
